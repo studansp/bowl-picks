@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="BowlPicks.App">
+<head>
+    <title>Bowl Picks</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    
+    <!-- Global -->
+    
+    <script src="app/Global.js"></script>
+
+    <!-- Libraries-->
+
+    <script src="app/js/jquery-2.1.1.js"></script>
+    <script src="app/js/bootstrap.js"></script>
+    <script src="app/js/angular.js"></script>
+    <script src="app/js/angular-route.js"></script>
+    <script src="app/js/angular-drag-and-drop-lists.js"></script>
+    
+    <!-- Models -->
+    
+    <script src="app/models/LeaderboardModel.js"></script>
+    <script src="app/models/GameModel.js"></script>
+    <script src="app/models/UserPicksContainerModel.js"></script>
+    <script src="app/models/UserPickModel.js"></script>
+    <script src="app/models/SelectModel.js"></script>
+    <script src="app/models/LoginModel.js"></script>
+    <script src="app/models/PickModel.js"></script>
+    <script src="app/models/CreateAccountModel.js"></script>
+    
+    <!-- Services -->
+
+    <script src="app/services/ServiceWrapper.js"></script>
+
+    <!-- Controllers -->
+    
+    <script src="app/controllers/HeaderController.js"></script>
+    <script src="app/controllers/HomeController.js"></script>
+    <script src="app/controllers/AllPicksController .js"></script>
+    <script src="app/controllers/MyPicksController.js"></script>
+    <script src="app/controllers/LoginController.js"></script>
+    <script src="app/controllers/CreateAccountController.js"></script>
+
+    <!-- App -->
+    <script src="app/js/angular-route.js"></script>
+    <script src="app/app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="row" data-ng-controller="HeaderController">
+            <a class="col-xs-12 col-sm-3 headerButton" href="" ng-href="#/home">Home</a>
+            <a class="col-xs-12 col-sm-3 headerButton" href="" ng-href="#/mypicks">My Picks</a>
+            <a class="col-xs-12 col-sm-3 headerButton" href="" ng-href="#/allpicks">All Picks</a>
+            <a class="col-xs-12 col-sm-3 headerButton" href="" ng-href="#/login" data-ng-show="!Token">Login</a>
+            <a class="col-xs-12 col-sm-3 headerButton" href="" ng-click="Logout()" data-ng-show="Token">Logout</a>
+        </header>
+    </div>
+
+    <div class="container pageContainer" ng-view></div>
+    
+</body>
+</html>

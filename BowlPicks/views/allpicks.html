@@ -1,0 +1,36 @@
+﻿<div class="row">
+    <h1 class="col-xs-12">View Picks</h1>
+</div>
+
+<div class="row" data-ng-show="IsLoading">
+    <div class="col-xs-12">Loading...</div>
+</div>
+<div class="row" data-ng-show="!IsLoading">
+    <select class="col-xs-12" data-ng-options="u.Text for u in Users" data-ng-model="SelectedUser" data-ng-change="UserChanged()"></select>
+</div>
+    
+<div class="row" data-ng-show="!IsLoading && SelectedPicks.Picks.length==0 && SelectedUser!=EmptyUser">
+    <div class="col-xs-12">
+        User has not yet submitted picks
+    </div>
+</div>
+
+<div class="row" data-ng-show="!IsLoading && SelectedPicks.Picks.length>0">
+    <div class="row">
+        <div class="col-xs-12">
+            Picks for {{ SelectedUser.Text }}
+        </div>
+    </div>
+
+    <div class="myPicksRow" data-ng-repeat="pick in SelectedPicks.Picks">
+        <div class="col-xs-4">
+            <span class="myPicksGameName">{{ pick.GameName }}</span>
+        </div>
+        <div class="col-xs-4" data-ng-click="IsTeam1Selected($index, true)" data-ng-class="pick.IsTeam1Selected?'teamSelected':''">
+            {{ pick.Team1 }} ({{ pick.Team1Spread>0?"+"+pick.Team1Spread:pick.Team1Spread }})
+        </div>
+        <div class="col-xs-4" data-ng-click="IsTeam1Selected($index, false)" data-ng-class="!pick.IsTeam1Selected?'teamSelected':''">
+            {{ pick.Team2 }} ({{ -pick.Team1Spread>0?"+"+(-pick.Team1Spread):-pick.Team1Spread }})
+        </div>
+    </div>
+</div>

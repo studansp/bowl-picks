@@ -1,0 +1,45 @@
+﻿<div class="row">
+    <h1 class="col-xs-12">Create Account</h1>
+</div>
+
+<form data-ng-submit="CreateAccount()">
+    <div class="row">
+        <div class="col-xs-12">
+            Username: <input class="loginInput" type="text" ng-model="Model.Username" data-ng-required="true" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            Password: <input class="loginInput" type="password" ng-model="Model.Password" data-ng-required="true" />
+        </div>        
+    </div>    
+    <div class="row">
+        <div class="col-xs-12">
+            Confirm: <input class="loginInput" type="password" ng-model="Model.ConfirmPassword" data-ng-required="true" />
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-xs-12">
+            Email: <input class="loginInput" type="email" ng-model="Model.Email" data-ng-required="true" />
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-xs-12">
+            <input type="submit" value="Create" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <label class="errorMessage" data-ng-bind="ErrorMessage"></label>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-xs-12">
+        <a href="" data-ng-href="#/login">Return to Login</a>
+    </div>
+</div>

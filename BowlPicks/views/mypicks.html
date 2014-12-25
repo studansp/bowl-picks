@@ -1,0 +1,58 @@
+﻿<div class="row">
+    <h1 class="col-xs-12">My Picks</h1>
+</div>
+
+<div class="row" data-ng-show="IsLoading">
+    <div class="col-xs-12">Loading...</div>
+</div>
+
+<div class="row" data-ng-show="!IsLoading">
+    <div class="col-xs-12">
+        Arrange teams in order of confidence.  Most confident picks should be placed at the
+        top of the list and are worth more points.
+    </div>
+</div>
+
+<br/>
+
+<div class="row" data-ng-show="!IsLoading">
+    <div class="col-xs-12">
+        <button ng-click="SubmitPicks()">Save</button> (You can save as many times as you want)
+    </div>
+</div>
+
+<br />
+
+<div class="row pickHeaders" data-ng-show="!IsLoading">
+    <div class="col-xs-4">
+        Betting lines in parenthesis
+    </div>
+    <div class="col-xs-4">
+        Drag to reorder
+    </div>
+    <div class="col-xs-4">
+        Click to choose team
+    </div>
+</div>
+
+<div class="row" data-ng-show="!IsLoading">
+    <div data-dnd-list="Model.Picks">
+        <div class="myPicksRow"
+             data-dnd-draggable="pick"
+             data-dnd-moved="Model.Picks.splice($index, 1)"
+             data-dnd-effect-allowed="move"
+             data-dnd-selected="models.selected = item"
+             ng-class="{'selected': models.selected === item}"
+             data-ng-repeat="pick in Model.Picks">
+            <div class="col-xs-4">
+                <span class="myPicksGameName">{{ pick.GameName }}</span>
+            </div>            
+            <div class="col-xs-4" data-ng-click="IsTeam1Selected($index, true)" data-ng-class="pick.IsTeam1Selected?'teamSelected':''">
+                {{ pick.Team1 }} ({{ pick.Team1Spread>0?"+"+pick.Team1Spread:pick.Team1Spread }})
+            </div>
+            <div class="col-xs-4" data-ng-click="IsTeam1Selected($index, false)" data-ng-class="!pick.IsTeam1Selected?'teamSelected':''">
+                {{ pick.Team2 }} ({{ -pick.Team1Spread>0?"+"+(-pick.Team1Spread):-pick.Team1Spread }})
+            </div>
+        </div>
+    </div>
+</div>

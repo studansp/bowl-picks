@@ -1,0 +1,34 @@
+﻿<div class="row">
+    <h1 class="col-xs-12">Login</h1>
+</div>
+
+<form data-ng-submit="Login()">
+    <div class="row">
+        <div class="col-xs-4">
+            Username: <input class="loginInput" type="text" ng-model="Model.Username" data-ng-required="true" />
+        </div>
+        <div class="col-xs-4">
+            Password: <input class="loginInput" type="password" ng-model="Model.Password" data-ng-required="true" />
+        </div>
+    </div>
+    
+    <br/>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <input type="submit" value="Login" />
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-12">
+            <label class="errorMessage" data-ng-bind="ErrorMessage"></label>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-xs-12">
+        <a href="" data-ng-href="#/createaccount">Create Account</a>
+    </div>
+</div>

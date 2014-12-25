@@ -1,0 +1,45 @@
+﻿<div class="row">
+    <h1 class="col-xs-12">Home</h1>
+</div>
+
+<div class="row" data-ng-show="IsLoading">
+    <div class="col-xs-12">
+        Loading Leaders...
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Leaderboard</h2>
+    </div>
+</div>
+
+    <div ng-class="leader.IsHeader? 'headerRow':''" class="row leaderRow" data-ng-repeat="leader in Leaders">
+        <div class="col-xs-2 col-sm-1">
+            {{ leader.Rank }}
+        </div>
+
+        <div class="col-xs-6 col-sm-3">
+            {{ leader.Name }}
+        </div>
+
+        <div class="hidden-xs col-sm-1">
+            {{ leader.CorrectPicks }}
+        </div>
+
+        <div class="hidden-xs col-sm-1">
+            {{ leader.TotalPicks }}
+        </div>
+
+        <div class="hidden-xs col-sm-2">
+            {{ leader.PickPercent }}
+        </div>
+
+        <div class="col-xs-2 col-sm-1">
+            {{ leader.Points }}
+        </div>
+
+        <div class="col-xs-2 col-sm-1">
+            {{ leader.MaxPoints}}
+        </div>
+    </div>

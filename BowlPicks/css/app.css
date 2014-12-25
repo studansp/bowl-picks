@@ -1,0 +1,71 @@
+﻿h1 {
+    background-color: #18453B;
+    color: #ffffff;
+    margin-top: 0;
+}
+
+h2, h3 {
+    color: #18453B;
+}
+
+.headerButton, .headerButton:hover, .headerButton:focus {
+    color: #fff;
+    background-color: #18453B;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.headerButton:hover {
+    background-color: #748f89;
+}
+
+.headerRow {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.leaderRow:nth-child(odd) {
+    background-color: #18453B;
+    color: #fff;
+}
+
+.leaderRow:nth-child(even) {
+    background-color: #fff;
+    color: #18453B;
+}
+
+.myPicksRow {
+    border: solid 1px #18453B;
+    margin-bottom: 5px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.teamSelected {
+    background-color: lightgreen;
+}
+
+.myPicksGameName {
+    font-style: italic;
+}
+
+.pickHeaders {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.loginInput {
+    width: 100%;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.pageContainer {
+    border: #18453b 2px solid;
+    border-radius: 5px;
+}
