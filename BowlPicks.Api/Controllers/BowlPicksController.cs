@@ -51,6 +51,8 @@ namespace BowlPicks.Api.Controllers
         [EnableCors(origins: "http://bowlpicks.gymtycoon.com", headers: "*", methods: "*")]
         public UserPicksContainerModel MyPicks([FromBody]PickPostData pickData)
         {
+            _errorFactory.SetAuthErrorResponse("Too late to set picks, bro.");
+
             return _picksProcessor.SetMyPicks(GetToken(pickData.Token), pickData.Picks);
         }
 

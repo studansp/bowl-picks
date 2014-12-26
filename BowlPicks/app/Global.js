@@ -15,5 +15,5 @@ if (typeof BowlPicks.Global == "undefined") {
 
     BowlPicks.Global.Events.AuthChange = "AUTHCHANGE";
 
-    BowlPicks.Global.ApiRoot = 'http://localhost:1182/api';
+    BowlPicks.Global.ApiRoot = 'http://bowlpicks.gymtycoon.com:1182/api';
 }
