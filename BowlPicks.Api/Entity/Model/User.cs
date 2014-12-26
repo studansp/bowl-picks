@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Web;
-using BowlPicks.Api.Security;
+using BowlPicks.Api.Logic;
 
 namespace BowlPicks.Api.Entity.Model
 {
@@ -32,11 +27,11 @@ namespace BowlPicks.Api.Entity.Model
         [Index("IX_Email", 1, IsUnique = true)]
         public string Email { get; set; }
 
-        public void SetPassword(string password)
+        public void SetPassword(IHashProcessor hashProcessor, string password)
         {
 
-            Salt = Hasher.GenerateSaltValue();
-            Password = Hasher.HashPassword(System.Text.Encoding.UTF8.GetBytes(password), Salt);
+            Salt = hashProcessor.GenerateSaltValue();
+            Password = hashProcessor.HashPassword(System.Text.Encoding.UTF8.GetBytes(password), Salt);
         }
     }
 }

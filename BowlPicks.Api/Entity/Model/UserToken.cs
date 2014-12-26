@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using BowlPicks.Api.Enum;
 
 namespace BowlPicks.Api.Entity.Model
 {
@@ -22,5 +23,11 @@ namespace BowlPicks.Api.Entity.Model
         public string Token { get; set; }
 
         public DateTime Expiration { get; set; }
+
+        [NotMapped]
+        public TokenStatus TokenStatus { get; set; }
+
+        public static readonly UserToken UserDoesNotExist = new UserToken{ TokenStatus = TokenStatus.UserDoesNotExist};
+        public static readonly UserToken InvalidPassword = new UserToken { TokenStatus = TokenStatus.InvalidPassword };
     }
 }
