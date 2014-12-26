@@ -67,7 +67,7 @@ namespace BowlPicks.Api.Logic
 
         public IEnumerable<LeaderboardModel> GetLeaderboard()
         {
-            IEnumerable<LeaderboardModel> picks;
+            List<LeaderboardModel> picks;
 
             using (var trx = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions()
@@ -85,9 +85,23 @@ namespace BowlPicks.Api.Logic
                 picks = allPicks
                     .Select(p => p.GetLeaderboardModel())
                     .OrderByDescending(m=>m.Points)
-                    .ThenByDescending(m=>m.MaxPoints);
-                
+                    .ThenByDescending(m=>m.MaxPoints).ToList();
+
                 trx.Complete();
+            }
+
+            for (int i = 0; i < picks.Count; i++)
+            {
+                if (i == 0)
+                {
+                    picks[i].Rank = 1;
+                }
+                else
+                {
+                    picks[i].Rank = picks[i].Points == picks[i - 1].Points
+                        ? picks[i - 1].Rank
+                        : picks[i].Rank = i + 1;
+                }
             }
 
             return picks;

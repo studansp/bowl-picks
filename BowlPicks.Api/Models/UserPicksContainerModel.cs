@@ -37,9 +37,6 @@ namespace BowlPicks.Api.Models
 
             PickPercent = TotalPicks==0?0:(decimal)CorrectPicks / TotalPicks;
 
-            //TODO Set Rank
-            Rank = 1;
-
             var firstPick = picks.FirstOrDefault();
 
             if (firstPick != null)
@@ -60,7 +57,6 @@ namespace BowlPicks.Api.Models
         public decimal PickPercent { get; set; }
         public int Points { get; set; }
         public int MaxPoints { get; set; }
-        public int Rank { get; set; }
         public int UserId { get; set; }
 
         public LeaderboardModel GetLeaderboardModel()
@@ -72,7 +68,6 @@ namespace BowlPicks.Api.Models
                 Name = Name,
                 PickPercent = PickPercent,
                 Points = Points,
-                Rank = Rank,
                 TotalPicks = TotalPicks
             };
         }
