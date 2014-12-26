@@ -82,7 +82,10 @@ namespace BowlPicks.Api.Logic
 
                 List<UserPicksContainerModel> allPicks = test1.Select(lb => new UserPicksContainerModel(lb)).ToList();
 
-                picks = allPicks.Select(p => p.GetLeaderboardModel());
+                picks = allPicks
+                    .Select(p => p.GetLeaderboardModel())
+                    .OrderByDescending(m=>m.Points)
+                    .ThenByDescending(m=>m.MaxPoints);
                 
                 trx.Complete();
             }

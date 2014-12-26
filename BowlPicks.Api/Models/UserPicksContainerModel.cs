@@ -18,16 +18,20 @@ namespace BowlPicks.Api.Models
 
                 if (pick.Game.IsGameOver)
                 {
-                    if (pick.IsTeam1Selected && pick.Game.DidTeam1Win)
-                    {
-                        ++CorrectPicks;
-                        ++TotalPicks;
-                        Points += pick.Confidence;
-                    }
-                    else
+                    ++TotalPicks;
+
+                    if ((pick.IsTeam1Selected && pick.Game.DidTeam1Win) ||
+                        (!pick.IsTeam1Selected && !pick.Game.DidTeam1Win))
                     {
                         MaxPoints += pick.Confidence;
+                        ++CorrectPicks;
+                        
+                        Points += pick.Confidence;
                     }
+                }
+                else
+                {
+                    MaxPoints += pick.Confidence;
                 }
             }
 
