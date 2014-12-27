@@ -1,5 +1,7 @@
 ﻿<div class="row">
-    <h1 class="col-xs-12">My Picks</h1>
+    <div class="col-xs-12">
+        <h2>My Picks</h2>
+    </div>
 </div>
 
 <div class="row" data-ng-show="IsLoading">
@@ -8,8 +10,7 @@
 
 <div class="row" data-ng-show="!IsLoading">
     <div class="col-xs-12">
-        Arrange teams in order of confidence.  Most confident picks should be placed at the
-        top of the list and are worth more points.
+        Picks are now final.
     </div>
 </div>
 
@@ -17,7 +18,7 @@
 
 <div class="row pickHeaders" data-ng-show="!IsLoading">
     <div class="col-xs-4">
-        Betting lines in parenthesis
+        Betting lines in parentheses
     </div>
     <div class="col-xs-4">
         Drag to reorder
@@ -27,7 +28,7 @@
     </div>
 </div>
 
-<div class="row" data-ng-show="!IsLoading">
+<div class="row myPicksFinal" data-ng-show="!IsLoading">
     <div data-dnd-list="Model.Picks">
         <div class="myPicksRow"
              data-dnd-draggable="pick"

@@ -43,7 +43,15 @@ if (typeof BowlPicks.App == "undefined") {
           });
     });
 
-    BowlPicks.App.run(function() {
-        
+    BowlPicks.App.run(function ($rootScope) {
+        $rootScope.$on('$routeChangeSuccess', function (next, current) {
+            $rootScope.$broadcast(BowlPicks.Global.Events.PageChange);
+        });
+
+        BowlPicks.Global.Token = readCookie(BowlPicks.Global.Cookies.Token);
+
+        if (BowlPicks.Global.Token) {
+            $rootScope.$broadcast(BowlPicks.Global.Events.AuthChange);
+        }
     });
 }

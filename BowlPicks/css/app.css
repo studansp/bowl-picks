@@ -1,29 +1,56 @@
-﻿h1 {
+﻿html { }
+
+header {
+    margin-top: 20px;
+}
+
+.blurBackground {
+    -moz-background-size: cover;
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    -o-background-size: cover;
+    -o-filter: blur(5px);
+    -webkit-background-size: cover;
+    -webkit-filter: blur(5px);
+    background: url('http://media.247sports.com/Uploads/Assets/798/553/553798.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(5px);
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+h1 {
     background-color: #18453B;
     color: #ffffff;
     margin-top: 0;
 }
 
-h2, h3 {
-    color: #18453B;
+h2, h3 { color: #18453B; }
+
+.selectedHeader {
+    background-color: #fff !important;
+    color: #18453B !important;
 }
 
 .headerButton, .headerButton:hover, .headerButton:focus {
-    color: #fff;
     background-color: #18453B;
+    color: #fff;
+    font-size: 24px;
     font-weight: bold;
-    text-decoration: none;
+    padding: 10px;
     text-align: center;
-    margin-bottom: 10px;
+    text-decoration: none;
 }
 
-.headerButton:hover {
-    background-color: #748f89;
-}
+.headerButton:hover { background-color: #748f89; }
 
 .headerRow {
-    font-weight: bold;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .leaderRow:nth-child(odd) {
@@ -38,34 +65,29 @@ h2, h3 {
 
 .myPicksRow {
     border: solid 1px #18453B;
-    margin-bottom: 5px;
-    height: 30px;
     border-radius: 5px;
     font-size: 20px;
+    height: 30px;
+    margin-bottom: 5px;
 }
 
-.teamSelected {
-    background-color: lightgreen;
-}
+.teamSelected { background-color: lightgreen; }
 
-.myPicksGameName {
-    font-style: italic;
-}
+.myPicksGameName { font-style: italic; }
 
 .pickHeaders {
     font-size: 12px;
     font-style: italic;
 }
 
-.loginInput {
-    width: 100%;
-}
+.loginInput { width: 100%; }
 
-.errorMessage {
-    color: red;
-}
+.errorMessage { color: red; }
 
 .pageContainer {
-    border: #18453b 2px solid;
-    border-radius: 5px;
+    background-color: #fff;
+}
+
+.myPicksFinal {
+    pointer-events: none;
 }

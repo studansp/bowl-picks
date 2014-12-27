@@ -48,18 +48,21 @@
     <script src="app/js/angular-route.js"></script>
     <script src="app/app.js"></script>
 </head>
-<body>
-    <div class="container">
-        <header class="row" data-ng-controller="HeaderController">
-            <a class="col-xs-12 col-sm-3 headerButton" href="" ng-href="#/home">Home</a>
-            <a class="col-xs-12 col-sm-3 headerButton" href="" ng-href="#/mypicks">My Picks</a>
-            <a class="col-xs-12 col-sm-3 headerButton" href="" ng-href="#/allpicks">All Picks</a>
-            <a class="col-xs-12 col-sm-3 headerButton" href="" ng-href="#/login" data-ng-show="!Token">Login</a>
-            <a class="col-xs-12 col-sm-3 headerButton" href="" ng-click="Logout()" data-ng-show="Token">Logout</a>
-        </header>
-    </div>
+    <body>
+        <div class="blurBackground hidden-xs">
 
-    <div class="container pageContainer" ng-view></div>
+        </div>
+        <div class="container">
+            <header class="row" data-ng-controller="HeaderController">
+                <a class="col-xs-12 col-sm-3 headerButton" data-ng-class="HomeSelected" href="" ng-href="#/home">HOME</a>
+                <a class="col-xs-12 col-sm-3 headerButton" data-ng-class="MyPicksSelected" href="" ng-href="#/mypicks">MY PICKS</a>
+                <a class="col-xs-12 col-sm-3 headerButton" data-ng-class="AllPicksSelected" href="" ng-href="#/allpicks">ALL PICKS</a>
+                <a class="col-xs-12 col-sm-3 headerButton" data-ng-class="LoginSelected" href="" ng-href="#/login" data-ng-show="!Token">LOGIN</a>
+                <a class="col-xs-12 col-sm-3 headerButton" data-ng-class="LoginSelected" href="" ng-click="Logout()" data-ng-show="Token">LOGOUT</a>
+            </header>
+        </div>
+
+        <div class="container pageContainer" ng-view></div>
     
-</body>
+    </body>
 </html>

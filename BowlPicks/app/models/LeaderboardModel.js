@@ -31,6 +31,8 @@ if (typeof BowlPicks.Models.LeaderboardModel == "undefined") {
             self.MaxPoints = data.MaxPoints;
             self.Rank = data.Rank;
             self.UserId = data.UserId;
+
+            self.PickPercentDisplay = (self.PickPercent * 100.0).toFixed(2) + '%';
         };
 
         this.SetHeaderFields = function() {
@@ -38,6 +40,7 @@ if (typeof BowlPicks.Models.LeaderboardModel == "undefined") {
             self.CorrectPicks = "Correct";
             self.TotalPicks = "Total";
             self.PickPercent = "Percent";
+            self.PickPercentDisplay = "Percent";
             self.Points = "Points";
             self.MaxPoints = "Max";
             self.Rank = "Rank";
