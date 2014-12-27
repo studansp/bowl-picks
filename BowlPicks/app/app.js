@@ -5,7 +5,7 @@ if (typeof BowlPicks == "undefined") {
 }
 
 if (typeof BowlPicks.App == "undefined") {
-    BowlPicks.App = angular.module('BowlPicks.App', ['ngRoute', 'dndLists']);
+    BowlPicks.App = angular.module('BowlPicks.App', ['ngRoute', 'dndLists', 'ngAnimate']);
 
     BowlPicks.App.service('ServiceWrapper', ['$http', BowlPicks.Services.ServiceWrapper]);
 

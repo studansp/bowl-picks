@@ -12,7 +12,7 @@ header {
     -o-filter: blur(5px);
     -webkit-background-size: cover;
     -webkit-filter: blur(5px);
-    background: url('http://media.247sports.com/Uploads/Assets/798/553/553798.jpg') no-repeat center center fixed;
+    background: url('../img/spartyBackground.jpg') no-repeat center center fixed;
     background-size: cover;
     filter: blur(5px);
     left: 0;
@@ -86,8 +86,28 @@ h2, h3 { color: #18453B; }
 
 .pageContainer {
     background-color: #fff;
+    transition-timing-function: ease;
+    transition-duration: 250ms;
 }
 
 .myPicksFinal {
     pointer-events: none;
+}
+
+.toggle.ng-enter {
+ -webkit-transition: 0.25s linear all; /* Safari/Chrome */
+ transition: 0.25s linear all; /* All other modern browsers and IE10+ */
+
+ /* The animation preparation code */
+ opacity: 0;
+}
+
+/*
+ Keep in mind that you want to combine both CSS
+ classes together to avoid any CSS-specificity
+ conflicts
+*/
+.toggle.ng-enter.ng-enter-active {
+ /* The animation code itself */
+ opacity: 1;
 }
