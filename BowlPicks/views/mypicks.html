@@ -10,11 +10,20 @@
 
 <div class="row" data-ng-show="!IsLoading">
     <div class="col-xs-12">
-        Picks are now final.
+        Arrange teams in order of confidence.  Most confident picks should be placed at the
+        top of the list and are worth more points.
     </div>
 </div>
-
+ 
 <br />
+ 
+<div class="row" data-ng-show="!IsLoading">
+    <div class="col-xs-12">
+        <button ng-click="SubmitPicks()">Save</button> (You can save as many times as you want)
+    </div>
+</div>
+ 
+ <br />
 
 <div class="row pickHeaders" data-ng-show="!IsLoading">
     <div class="col-xs-4">
@@ -28,7 +37,7 @@
     </div>
 </div>
 
-<div class="row myPicksFinal" data-ng-show="!IsLoading">
+<div class="row" data-ng-show="!IsLoading">
     <div data-dnd-list="Model.Picks">
         <div class="myPicksRow"
              data-dnd-draggable="pick"

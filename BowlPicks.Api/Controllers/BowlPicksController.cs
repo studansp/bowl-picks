@@ -41,23 +41,21 @@ namespace BowlPicks.Api.Controllers
         }
 
         [HttpGet]
-        [EnableCors(origins: "http://bowlpicks.gymtycoon.com", headers: "*", methods: "*")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public UserPicksContainerModel MyPicks(string token)
         {
             return _picksProcessor.GetMyPicks(GetToken(token));
         }
 
         [HttpPut]
-        [EnableCors(origins: "http://bowlpicks.gymtycoon.com", headers: "*", methods: "*")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public UserPicksContainerModel MyPicks([FromBody]PickPostData pickData)
         {
-            _errorFactory.SetAuthErrorResponse("Too late to set picks, bro.");
-
             return _picksProcessor.SetMyPicks(GetToken(pickData.Token), pickData.Picks);
         }
 
         [HttpGet]
-        [EnableCors(origins: "http://bowlpicks.gymtycoon.com", headers: "*", methods: "*")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public string Token(string userName, string password)
         {
             var token = _accountProcessor.GetToken(userName, password);
@@ -76,27 +74,27 @@ namespace BowlPicks.Api.Controllers
         }
 
         [HttpGet]
-        [EnableCors(origins: "http://bowlpicks.gymtycoon.com", headers: "*", methods: "*")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IEnumerable<LeaderboardModel> Leaderboard()
         {
             return _picksProcessor.GetLeaderboard();
         }
 
         [HttpGet]
-        [EnableCors(origins: "http://bowlpicks.gymtycoon.com", headers: "*", methods: "*")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public UserPicksContainerModel UserPicks(int id)
         {
             return _picksProcessor.GetUserPicks(id);
         }
 
         [HttpGet]
-        [EnableCors(origins: "http://bowlpicks.gymtycoon.com", headers: "*", methods: "*")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public List<SelectPair> Users()
         {
             return _picksProcessor.GetUserPairs();
         }
         [HttpPost]
-        [EnableCors(origins: "http://bowlpicks.gymtycoon.com", headers: "*", methods: "*")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public string Account([FromBody]CreateAccountModel account)
         {
             var user = new User

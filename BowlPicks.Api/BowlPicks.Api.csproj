@@ -237,6 +237,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
   </ItemGroup>
   <ItemGroup />
