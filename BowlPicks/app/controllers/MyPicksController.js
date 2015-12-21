@@ -11,10 +11,27 @@ if (typeof BowlPicks.Controllers == "undefined") {
 if (typeof BowlPicks.Controllers.MyPicksController == "undefined") {
     BowlPicks.Controllers.MyPicksController = function ($scope, ServiceWrapper, $location) {
         $scope.IsLoading = true;
+        $scope.PicksFinal = true;
 
         $scope.IsTeam1Selected = function($index, team1Selected) {
             $scope.Model.Picks[$index].IsTeam1Selected = team1Selected;
         };
+
+        $scope.Up = function ($index) {
+            if ($index > 0) {
+                var item = $scope.Model.Picks[$index];
+                $scope.Model.Picks[$index] = $scope.Model.Picks[$index - 1];
+                $scope.Model.Picks[$index-1] = item;
+            }
+        }
+
+        $scope.Down = function ($index) {
+            if ($index < $scope.Model.Picks.length - 1) {
+                var item = $scope.Model.Picks[$index];
+                $scope.Model.Picks[$index] = $scope.Model.Picks[$index + 1];
+                $scope.Model.Picks[$index+1] = item;
+            }
+        }
 
         $scope.SubmitPicks = function() {
             $scope.IsLoading = true;

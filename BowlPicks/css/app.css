@@ -63,11 +63,15 @@ h2, h3 { color: #18453B; }
     color: #18453B;
 }
 
+
+.myPicksImagesContainer {
+    text-align: center;
+}
+
 .myPicksRow {
     border: solid 1px #18453B;
     border-radius: 5px;
     font-size: 20px;
-    height: 30px;
     margin-bottom: 5px;
 }
 
@@ -94,6 +98,11 @@ h2, h3 { color: #18453B; }
     pointer-events: none;
 }
 
+.myPicksImage {
+    height: 30px;
+    width: 30px;
+}
+
 .toggle.ng-enter {
  -webkit-transition: 0.25s linear all; /* Safari/Chrome */
  transition: 0.25s linear all; /* All other modern browsers and IE10+ */
@@ -110,4 +119,13 @@ h2, h3 { color: #18453B; }
 .toggle.ng-enter.ng-enter-active {
  /* The animation code itself */
  opacity: 1;
+}
+
+
+.floatRight {
+    float: right;
+}
+
+.floatLeft {
+    float: left;
 }

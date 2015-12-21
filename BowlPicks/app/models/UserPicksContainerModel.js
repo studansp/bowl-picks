@@ -22,6 +22,7 @@ if (typeof BowlPicks.Models.UserPicksContainerModel == "undefined") {
         this.Rank = 0;
         this.IsHeader = false;
         this.UserId = 0;
+        this.PicksFinal = true;
 
         this.Init = function (data) {
             self.Name = data.Name;
@@ -32,6 +33,7 @@ if (typeof BowlPicks.Models.UserPicksContainerModel == "undefined") {
             self.MaxPoints = data.MaxPoints;
             self.Rank = data.Rank;
             self.UserId = data.UserId;
+            self.PicksFinal = data.PicksFinal;
 
             while (self.Picks.length > 0) {
                 self.Picks.pop();

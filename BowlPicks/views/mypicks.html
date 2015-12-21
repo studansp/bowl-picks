@@ -9,7 +9,10 @@
 </div>
 
 <div class="row" data-ng-show="!IsLoading">
-    <div class="col-xs-12">
+    <div class="col-xs-12" data-ng-show="Model.PicksFinal">
+        Picks are now final
+    </div>
+    <div class="col-xs-12" data-ng-show="!Model.PicksFinal">
         Arrange teams in order of confidence.  Most confident picks should be placed at the
         top of the list and are worth more points.
     </div>
@@ -17,7 +20,7 @@
  
 <br />
  
-<div class="row" data-ng-show="!IsLoading">
+<div class="row" data-ng-show="!IsLoading && !Model.PicksFinal">
     <div class="col-xs-12">
         <button ng-click="SubmitPicks()">Save</button> (You can save as many times as you want)
     </div>
@@ -37,7 +40,7 @@
     </div>
 </div>
 
-<div class="row" data-ng-show="!IsLoading">
+<div data-ng-class="Model.PicksFinal?'row myPicksFinal':'row'" data-ng-show="!IsLoading">
     <div data-dnd-list="Model.Picks">
         <div class="myPicksRow"
              data-dnd-draggable="pick"
@@ -46,15 +49,20 @@
              data-dnd-selected="models.selected = item"
              ng-class="{'selected': models.selected === item}"
              data-ng-repeat="pick in Model.Picks">
-            <div class="col-xs-4">
+            <div class="col-xs-6 col-lg-3">
                 <span class="myPicksGameName">{{ pick.GameName }}</span>
-            </div>            
-            <div class="col-xs-4" data-ng-click="IsTeam1Selected($index, true)" data-ng-class="pick.IsTeam1Selected?'teamSelected':''">
+            </div>
+            <div class="col-xs-6  col-lg-2 myPicksImagesContainer">
+                <img data-ng-click="Up($index)" class="myPicksImage" src="../img/up.png" alt="Move pick up" />
+                <img data-ng-click="Down($index)" class="myPicksImage" src="../img/down.png" alt="Move pick down" />
+            </div>
+            <div class="col-xs-6  col-lg-3" data-ng-click="IsTeam1Selected($index, true)" data-ng-class="pick.IsTeam1Selected?'teamSelected':''">
                 {{ pick.Team1 }} ({{ pick.Team1Spread>0?"+"+pick.Team1Spread:pick.Team1Spread }})
             </div>
-            <div class="col-xs-4" data-ng-click="IsTeam1Selected($index, false)" data-ng-class="!pick.IsTeam1Selected?'teamSelected':''">
+            <div class="col-xs-6  col-lg-3" data-ng-click="IsTeam1Selected($index, false)" data-ng-class="!pick.IsTeam1Selected?'teamSelected':''">
                 {{ pick.Team2 }} ({{ -pick.Team1Spread>0?"+"+(-pick.Team1Spread):-pick.Team1Spread }})
             </div>
+            <div class="clearfix"></div>
         </div>
     </div>
 </div>

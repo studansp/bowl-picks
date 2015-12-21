@@ -59,6 +59,11 @@ namespace BowlPicks.Api.Models
         public int MaxPoints { get; set; }
         public int UserId { get; set; }
 
+        public bool PicksFinal
+        {
+            get { return DateTime.Now.Date >= DateTime.Parse("12/25/2015").Date; }
+        }
+
         public LeaderboardModel GetLeaderboardModel()
         {
             return new LeaderboardModel
